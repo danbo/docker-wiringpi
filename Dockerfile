@@ -1,5 +1,5 @@
-FROM resin/rpi-raspbian:jessie
-MAINTAINER Govinda Fichtner <govinda@hypriot.com>
+FROM resin/rpi-raspbian:stretch
+MAINTAINER danbo <dan@danbo.ca>
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
 RUN pip install pyserial
 RUN git clone git://git.drogon.net/wiringPi
 RUN cd wiringPi && ./build
+RUN pip install setuptools
 RUN pip install wiringpi2
 
 RUN git clone https://github.com/technion/lol_dht22 /lol_dht22_src
@@ -27,4 +28,3 @@ WORKDIR /data
 VOLUME /data
 
 CMD ["/bin/bash"]
-
