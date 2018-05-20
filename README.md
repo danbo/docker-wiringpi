@@ -9,4 +9,5 @@ updated image that works with new versions of hypriot os (> 1.7.1)
 tested on rpi 1b
 
 build: docker build -t danbo/wiringpi:latest .
+
 run: docker run --device /dev/ttyAMA0:/dev/ttyAMA0 --device /dev/mem:/dev/mem --privileged -ti danbo/wiringpi /loldht 7 5
